@@ -1,22 +1,35 @@
 import json
 
-try:
-    with open("dados.json", 'r',) as arquivo:
-        dados_lidos = json.load(arquivo)
-        numero_de_pessoas = len(dados_lidos)
-        print(f"Número de objetos no banco de dados: {numero_de_pessoas}")
-except FileNotFoundError:
-    print("O arquivo 'banco_de_dados.json' não foi encontrado.")
+def carregar_dados_json():
+    try:
+        with open("dados.json", 'r') as dados:
+            dados_carregados = json.load(dados)
+            numero_de_pessoas = len(dados_carregados)
+            print(f"Número de objetos no banco de dados: {numero_de_pessoas}")
+            return dados_carregados
+    except FileNotFoundError:
+        print("O arquivo 'dados.json' não foi encontrado.")
+        return None
 
-def minha_funsao():
-    with open('dados.jon',"r") as jon:
-        funsao = json.load(jon)
-        return funsao
-    
-def procurar_pessoa():
-    for busca in minha_funsao:
-        
+def minha_funcao():
+    try:
+        with open('dados.json', 'r') as arquivo:
+            funcao = json.load(arquivo)
+        return funcao
+    except FileNotFoundError as e:
+        print(f"O arquivo não foi encontrado. Erro: {e}")
+        return None
 
+# Lógica do menu 1
+def procurar_pessoa(dados, termo):
+    resultados = []
+    termo = termo.lower()
+    for pessoa in dados:
+        if termo in pessoa['Nome'].lower() :
+            resultados.append(pessoa)
+    return resultados
+
+dados_lidos = minha_funcao()
 
 # Criar um menu simples
 def menu():
@@ -27,39 +40,42 @@ def menu():
     print("4. Deletar uma Pessoa")
     print("5. Sair do Programa")
 
- 
 # Loop principal do programa
 while True:
     menu()
     escolha = input("Escolha uma opção: ")
-    
+        
     if escolha == "1":
-        # Lógica para procurar pessoa
-        pass
+        # Lógica do menu 1
+        if dados_lidos:
+            busca = input("Digite o nome ou sobrenome que procura: ")
+            resultados = procurar_pessoa(dados_lidos, busca)
+            if resultados:
+                for pessoa in resultados:
+                    print(f'Nome: {pessoa["Nome"]}')
+            else:
+                print("Nenhuma pessoa foi encontrada com esse nome ou sobrenome")
 
     elif escolha == "2":
-        # Lógica para cadastrar uma pessoa
+           
         pass
     elif escolha == "3":
-        # Lógica para editar uma pessoa
+           
         pass
     elif escolha == "4":
         pass
-        # Lógica para procurar uma pessoa
-        # # cadastro = sorted(, key=lambda pessoa: pessoa['Nome'])
-        # for pessoa in cadastro:
-        #     print(f'Nome:{pessoa["Nome"]},')
+           
     elif escolha == "5":
-        # Lógica para deletar uma pessoa
+           
         pass
     elif escolha == "6":
-        # Lógica para sair do programa
+            
         break
     else:
         print("Escolha uma das opções acima.")
 
-        
-   
+            
+    
 
 
     
