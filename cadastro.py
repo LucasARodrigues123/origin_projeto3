@@ -31,6 +31,29 @@ def procurar_pessoa(dados, termo):
 
 dados_lidos = minha_funcao()
 
+def cadastro(nome, idade, altura, peso, nascimento, cpf, cidade):
+    try:
+        with open('dados.json', 'r') as arquivo:
+            dados = json.load(arquivo)
+    except FileNotFoundError:
+        dados = {"pessoas": []}
+
+    nova_pessoa = {
+        "Nome": nome,
+        "Idade": idade,
+        "Altura": altura,
+        "Peso": peso,
+        "Nascimento": nascimento,
+        "CPF": cpf,
+        "Cidade": cidade
+    }
+
+    dados["pessoas"].append(nova_pessoa)
+
+    with open('dados.json', 'w') as arquivo:
+        json.dump(dados, arquivo, indent=4)
+
+
 # Criar um menu simples
 def menu():
     print("Bem-vindo ao Menu de Cadastro")
@@ -57,8 +80,25 @@ while True:
                 print("Nenhuma pessoa foi encontrada com esse nome ou sobrenome")
 
     elif escolha == "2":
-           
-        pass
+        print('por favor digite as informação abaixo da pessoa acer cadastrada ')
+
+        nome = input('por favor digite o nome e  sobrenome:')
+
+        idade = input('por favor digite a idade da pessoa: ')
+
+        altura = input('por favor digite altura da pessoa:')
+
+        peso = input('por favor digite o peso da pessoa:')
+
+        nacimento = input('por favor digite a data de nacimento da pessoaso  so numeros:')
+
+        cpf = input('por favor digite o cpf da pessoa:')
+
+        cidade = input('digite o nome da cidade da pessoa:')
+
+        cadastro(nome, idade, altura, peso, nascimento, cpf, cidade)
+        print('pessoa cadastrada com sucesso!')
+
     elif escolha == "3":
            
         pass
