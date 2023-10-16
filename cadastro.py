@@ -1,59 +1,9 @@
 import json
+import cadastro_funsão
 
-def carregar_dados_json():
-    try:
-        with open("dados.json", 'r') as dados:
-            dados_carregados = json.load(dados)
-            numero_de_pessoas = len(dados_carregados)
-            print(f"Número de objetos no banco de dados: {numero_de_pessoas}")
-            return dados_carregados
-    except FileNotFoundError:
-        print("O arquivo 'dados.json' não foi encontrado.")
-        return None
-
-def minha_funcao():
-    try:
-        with open('dados.json', 'r') as arquivo:
-            funcao = json.load(arquivo)
-        return funcao
-    except FileNotFoundError as e:
-        print(f"O arquivo não foi encontrado. Erro: {e}")
-        return None
-
-# Lógica do menu 1
-def procurar_pessoa(dados, termo):
-    resultados = []
-    termo = termo.lower()
-    for pessoa in dados:
-        if termo in pessoa['Nome'].lower() :
-            resultados.append(pessoa)
-    return resultados
-
-dados_lidos = minha_funcao()
-
-def cadastro(nome, idade, altura, peso, nascimento, cpf, cidade):
-    try:
-        with open('dados.json', 'r') as arquivo:
-            dados = json.load(arquivo)
-    except FileNotFoundError:
-        dados = {"pessoas": []}
-
-    nova_pessoa = {
-        "Nome": nome,
-        "Idade": idade,
-        "Altura": altura,
-        "Peso": peso,
-        "Nascimento": nascimento,
-        "CPF": cpf,
-        "Cidade": cidade
-    }
-
-    dados["pessoas"].append(nova_pessoa)
-
-    with open('dados.json', 'w') as arquivo:
-        json.dump(dados, arquivo, indent=4)
-
-
+# funsoes
+dados_lidos = (cadastro_funsão)
+procurar_pessoa = (cadastro_funsão)
 # Criar um menu simples
 def menu():
     print("Bem-vindo ao Menu de Cadastro")
@@ -75,29 +25,32 @@ while True:
             resultados = procurar_pessoa(dados_lidos, busca)
             if resultados:
                 for pessoa in resultados:
-                    print(f'Nome: {pessoa["Nome"]}')
+                    print(f' "Nome": nome,
+        "Idade": idade,
+        "Altura": altura,
+        "Peso": peso,
+        "Cidade": cidade,
+        "Nascimento": nascimento,
+        "CPF": cpf,
+        "Email": email')
             else:
                 print("Nenhuma pessoa foi encontrada com esse nome ou sobrenome")
 
     elif escolha == "2":
-        print('por favor digite as informação abaixo da pessoa acer cadastrada ')
+        print('Por favor, digite as informações abaixo da pessoa a ser cadastrada:')
 
-        nome = input('por favor digite o nome e  sobrenome:')
+        nome = input('Digite o nome e sobrenome: ')
+        idade = input('Digite a idade da pessoa: ')
+        altura = input('Digite a altura da pessoa: ')
+        peso = input('Digite o peso da pessoa: ')
+        nascimento = input('Digite a data de nascimento (somente números): ')
+        cpf = input('Digite o CPF da pessoa: ')
+        cidade = input('Digite o nome da cidade da pessoa: ')
+        email = input('Digite o email da pessoa: ')
 
-        idade = input('por favor digite a idade da pessoa: ')
+        cadastro(nome, idade, altura, peso, nascimento, cpf, cidade, email)
+        print('Pessoa cadastrada com sucesso!')
 
-        altura = input('por favor digite altura da pessoa:')
-
-        peso = input('por favor digite o peso da pessoa:')
-
-        nacimento = input('por favor digite a data de nacimento da pessoaso  so numeros:')
-
-        cpf = input('por favor digite o cpf da pessoa:')
-
-        cidade = input('digite o nome da cidade da pessoa:')
-
-        cadastro(nome, idade, altura, peso, nascimento, cpf, cidade)
-        print('pessoa cadastrada com sucesso!')
 
     elif escolha == "3":
            
