@@ -1,6 +1,21 @@
 import json
 import cadastro_funsão
 
+# banco de dados
+banco.json {
+    "Nome":nome,
+    "Idade"idade,
+    "Altura":altura,
+    "Peso":peso,
+    "Nacimento"nascimento,
+    "Cpf":cpf,
+    "Cidade":cidade,
+}
+def 
+    with open('banco.json',"r") as arquivo:
+        dados.json = json.load(arquivo)
+        return dados.json
+
 # funsoes
 dados_lidos = (cadastro_funsão)
 procurar_pessoa = (cadastro_funsão)
@@ -25,14 +40,8 @@ while True:
             resultados = procurar_pessoa(dados_lidos, busca)
             if resultados:
                 for pessoa in resultados:
-                    print(f' "Nome": nome,
-        "Idade": idade,
-        "Altura": altura,
-        "Peso": peso,
-        "Cidade": cidade,
-        "Nascimento": nascimento,
-        "CPF": cpf,
-        "Email": email')
+                    print(f' "Nome"')
+        
             else:
                 print("Nenhuma pessoa foi encontrada com esse nome ou sobrenome")
 
