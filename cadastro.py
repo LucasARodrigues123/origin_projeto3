@@ -1,25 +1,40 @@
 import json
 import cadastro_funsão
 
-# banco de dados
-banco.json {
-    "Nome":nome,
-    "Idade"idade,
-    "Altura":altura,
-    "Peso":peso,
-    "Nacimento"nascimento,
-    "Cpf":cpf,
-    "Cidade":cidade,
+
+client = "lucas"
+idade = 24
+altura = 1.70
+peso = 58
+nascimento = "30/05/1999"
+cpf = "13510225721"
+cidade = "curitiba"
+email = "lucas@gmail.com"
+
+# Criando um dicionário
+dados = {
+    "Client": client,
+    "Idade": idade,
+    "Altura": altura,
+    "Peso": peso,
+    "Nascimento": nascimento,
+    "Cpf": cpf,
+    "Cidade": cidade,
+    "Email": email
 }
-def 
-    with open('banco.json',"r") as arquivo:
-        dados.json = json.load(arquivo)
-        return dados.json
+
+# Salvando o dicionário em um arquivo JSON
+with open('dados.json', 'w') as arquivo:
+    json.dump(dados, arquivo ,indent=4)
+
+     
 
 # funsoes
 dados_lidos = (cadastro_funsão)
 procurar_pessoa = (cadastro_funsão)
 # Criar um menu simples
+carregar_dados_json =(cadastro_funsão)
+print(carregar_dados_json)
 def menu():
     print("Bem-vindo ao Menu de Cadastro")
     print("1. Procurar uma Pessoa")
@@ -49,6 +64,7 @@ while True:
         print('Por favor, digite as informações abaixo da pessoa a ser cadastrada:')
 
         nome = input('Digite o nome e sobrenome: ')
+        nome = nome.split
         idade = input('Digite a idade da pessoa: ')
         altura = input('Digite a altura da pessoa: ')
         peso = input('Digite o peso da pessoa: ')
