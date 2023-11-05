@@ -1,10 +1,12 @@
-{
-    "Client": "lucas",
-    "Idade": 24,
-    "Altura": 1.7,
-    "Peso": 58,
-    "Nascimento": "30/05/1999",
-    "Cpf": "13510225721",
-    "Cidade": "curitiba",
-    "Email": "lucas@gmail.com"
-}
+[
+    {
+        "Client": "lucas",
+        "Idade": 24,
+        "Altura": 1.7,
+        "Peso": 58,
+        "Nascimento": "30/05/1999",
+        "Cpf": "13510225721",
+        "Cidade": "curitiba",
+        "Email": "lucas@gmail.com"
+    }
+]

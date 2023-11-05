@@ -12,21 +12,10 @@ def carregar_dados_json():
         
 
 def minha_funcao():
-    with open('dados.json', 'r') as arquivo:
-        carregado = json.load(arquivo)
-    return carregado
-
-
-# Lógica do menu 1
-def procurar_pessoa(dados, termo):
-    resultados = []
-    termo = termo.lower()
-    for pessoa in dados:
-        if termo in pessoa['Nome'].lower():
-            resultados.append(pessoa)
-    return resultados
-
-dados_lidos = minha_funcao()
+    with open('dados.json','r') as arquivo:
+        dados = json.load(arquivo)
+    return dados
+dados_carregados = minha_funcao()
 
 def cadastro(lista, nome, idade, altura, peso, nascimento, cpf, cidade, email):
     nova_pessoa = {
@@ -43,3 +32,12 @@ def cadastro(lista, nome, idade, altura, peso, nascimento, cpf, cidade, email):
 
     with open('dados.json', 'w') as arquivo:
         json.dump(lista, arquivo, indent=4)
+
+
+def buscar(dados_carregados, entrada):
+    lista_client = []
+    for Client in dados_carregados:
+        if Client.get('Client','').lower() == entrada.lower():
+            lista_client.append(Client)
+    return lista_client
+
