@@ -2,8 +2,8 @@ import json
 import cadastro_funsão
 from cadastro_funsão import buscar
 from cadastro_funsão import minha_funcao
-
-client = "lucas"
+dados_lidos = minha_funcao()
+nome = "lucas"
 idade = 24
 altura = 1.70
 peso = 58
@@ -14,7 +14,7 @@ email = "lucas@gmail.com"
 
 # Criando um dicionário
 dados = [{
-    "Client": client,
+    "Nome":nome,
     "Idade": idade,
     "Altura": altura,
     "Peso": peso,
@@ -54,32 +54,28 @@ while True:
         
     if escolha == "1":
         # Lógica do menu 1
-        entrada = input('Digite o nome do Cliente que procura?:')
-        dados_carregados = minha_funcao()
-        buscar(dados_carregados, entrada)
-        
-    lista_client = buscar(dados_carregados, entrada)
+        dados_entrada = input('Digite o nome do Cliente que procura?:')
+        buscar(dados_lidos, dados_entrada)   
+        lista_client = buscar(dados_lidos, dados_entrada)
 
-    if lista_client:
-        print(lista_client)
-        for client in lista_client:
-            print("Nome:",client.get("Client"))
-            print("Idade:",client.get("Idade"))
-            print("Peso:",client.get("Peso"))
-            print("Altura:",client.get("Altura"))
-            print("Nacimento:",client.get("Nacimento"))
-            print("Cpf:",client.get("Cpf"))
-            print("Cidade:",client.get("Cidade"))
-            print("Email:",client.get("Email"))
-                
-        else:
-            print("Nenhum cliente encontrado com o nome especificado.")
+        if lista_client:
+            print(lista_client)
+            for client in lista_client:
+                print("Nome:",nome.get("Client"))
+                print("Idade:",nome.get("Idade"))
+                print("Peso:",nome.get("Peso"))
+                print("Altura:",nome.get("Altura"))
+                print("Nacimento:",nome.get("Nacimento"))
+                print("Cpf:",nome.get("Cpf"))
+                print("Cidade:",nome.get("Cidade"))
+                print("Email:",nome.get("Email"))
+                    
+            else:
+                print("Nenhum cliente encontrado com o nome especificado.")
 
     elif escolha == "2":
         print('Por favor, digite as informações abaixo da pessoa a ser cadastrada:')
-
         nome = input('Digite o nome e sobrenome: ')
-        nome = nome.split()
         idade = input('Digite a idade da pessoa: ')
         altura = input('Digite a altura da pessoa: ')
         peso = input('Digite o peso da pessoa: ')

@@ -36,8 +36,8 @@ def cadastro(lista, nome, idade, altura, peso, nascimento, cpf, cidade, email):
 
 def buscar(dados_carregados, entrada):
     lista_client = []
-    for Client in dados_carregados:
-        if Client.get('Client','').lower() == entrada.lower():
-            lista_client.append(Client)
+    for nome in dados_carregados:
+        if nome.get('Client','').lower() == entrada.lower():
+            lista_client.append(nome)
     return lista_client
 
