@@ -3,30 +3,34 @@ import cadastro_funsão
 from cadastro_funsão import buscar
 from cadastro_funsão import minha_funcao
 dados_lidos = minha_funcao()
-nome = "lucas"
-idade = 24
-altura = 1.70
-peso = 58
-nascimento = "30/05/1999"
-cpf = "13510225721"
-cidade = "curitiba"
-email = "lucas@gmail.com"
+try:
+    with open("dados.json","r",encoding="utf-8") as arquivo:
+        dados = json.load(arquivo)
+except FileNotFoundError:
+    nome = "lucas"
+    idade = 24
+    altura = 1.70
+    peso = 58
+    nascimento = "30/05/1999"
+    cpf = "13510225721"
+    cidade = "curitiba"
+    email = "lucas@gmail.com"
 
-# Criando um dicionário
-dados = [{
-    "Nome":nome,
-    "Idade": idade,
-    "Altura": altura,
-    "Peso": peso,
-    "Nascimento": nascimento,
-    "Cpf": cpf,
-    "Cidade": cidade,
-    "Email": email
-}]
+    # Criando um dicionário
+    dados = [{
+        "Nome":nome,
+        "Idade": idade,
+        "Altura": altura,
+        "Peso": peso,
+        "Nascimento": nascimento,
+        "Cpf": cpf,
+        "Cidade": cidade,
+        "Email": email
+    }]
 
-# Salvando o dicionário em um arquivo JSON
-with open('dados.json', 'w') as arquivo:
-    json.dump(dados, arquivo ,indent=4)
+    # Salvando o dicionário em um arquivo JSON
+    with open('dados.json', 'w') as arquivo:
+        json.dump(dados, arquivo ,indent=4)
 
 # Abra o arquivo JSON
 with open('dados.json', 'r') as arquivo_json:
@@ -67,8 +71,8 @@ while True:
                 print("Altura:",nome.get("Altura"))
                 print("Nacimento:",nome.get("Nacimento"))
                 print("Cpf:",nome.get("Cpf"))
-                print("Cidade:",nome.get("Cidade"))
-                print("Email:",nome.get("Email"))
+                print("Cidade:",client.get("Cidade"))
+                print("Email:",client.get("Email"))
                     
             else:
                 print("Nenhum cliente encontrado com o nome especificado.")

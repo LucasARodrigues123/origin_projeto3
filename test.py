@@ -37,9 +37,6 @@ if lista_client:
             
 else:
     print("Nenhum cliente encontrado com o nome especificado.")
-    
-
-
 
 
     
