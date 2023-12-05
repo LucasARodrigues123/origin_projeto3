@@ -26,9 +26,11 @@ def cadastro(lista, nome, idade, altura, peso, nascimento, cpf, cidade, email):
         "Cidade": cidade,
         "Nascimento": nascimento,
         "CPF": cpf,
-        "Email": email
+        "Email": email,
     }
-    lista.append(nova_pessoa)
+    nova_lista = []
+    nova_lista.append(nova_pessoa)
+    lista.append(nova_lista)
 
     with open('dados.json', 'w') as arquivo:
         json.dump(lista, arquivo, indent=4)
@@ -38,6 +40,6 @@ def buscar(dados_carregados, entrada):
     lista_client = []
     for nome in dados_carregados:
         if nome.get('Client','').lower() == entrada.lower():
-            lista_client.append(nome)
+            lista_client.update(nome)
     return lista_client
 

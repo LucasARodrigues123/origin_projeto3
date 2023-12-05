@@ -1,22 +1,26 @@
 [
-    {
-        "Nome": "lucas",
-        "Idade": 24,
-        "Altura": 1.7,
-        "Peso": 58,
-        "Nascimento": "30/05/1999",
-        "Cpf": "13510225721",
-        "Cidade": "curitiba",
-        "Email": "lucas@gmail.com"
-    },
-    {
-        "Nome": "lucas",
-        "Idade": "20",
-        "Altura": "1.70",
-        "Peso": "80 ",
-        "Cidade": "curitiba",
-        "Nascimento": "30051999",
-        "CPF": "13502412343",
-        "Email": "lucas@gmail.com"
-    }
+    [
+        {
+            "Nome": "lucas",
+            "Idade": "20",
+            "Altura": "1.70",
+            "Peso": "80",
+            "Cidade": "curitiba",
+            "Nascimento": "30051999",
+            "CPF": "13510228924",
+            "Email": "lucas@gmail.com"
+        }
+    ],
+    [
+        {
+            "Nome": "fabio",
+            "Idade": "25",
+            "Altura": "120",
+            "Peso": "145",
+            "Cidade": "marcebas",
+            "Nascimento": "30303243",
+            "CPF": "12312323412",
+            "Email": "ddddd"
+        }
+    ]
 ]
